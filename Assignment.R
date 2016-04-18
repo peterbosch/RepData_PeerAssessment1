@@ -1,5 +1,5 @@
 library(lattice)
-# setwd("D:/Desktop/Data Science Classes/Reproducible Research/Assessment1/Week 1")
+# setwd("D:/Desktop/Data Science Classes/Reproducible Research/Week 1/Assessment1")
 
 dataFile <- "Data/activity.csv"
 data <- read.csv(dataFile)
@@ -7,13 +7,12 @@ data <- read.csv(dataFile)
 #### Q1 : What is mean total number of steps taken per day?
 # aggregate(data$steps ~ data$date, data, sum)
 analysis1a <- tapply(data$steps, data$date, FUN=sum)
-barplot(analysis1a)
+hist(analysis1a)
 
 ## Report Mean
 dayMean1a <- mean(analysis1a, na.rm = TRUE)
 ## Report Median
 dayMedian1a <- median(analysis1a, na.rm = TRUE)
-
 
 #### Q2 : What is the average daily activity pattern?
 ## Make a time series plot (i.e. type = "l") of the 5-minute interval (x-axis) and the average number of steps taken, averaged across all days (y-axis)
@@ -40,7 +39,7 @@ for ( ndx in 1:nrow(imputedData)) if ( is.na(imputedData[ndx,1]) ) imputedData[n
 
 ## Make a histogram of the total number of steps taken each day and Calculate and report the mean and median total number of steps taken per day. Do these values differ from the estimates from the first part of the assignment? What is the impact of imputing missing data on the estimates of the total daily number of steps?
 analysis3a <- tapply(imputedData$steps, imputedData$date, FUN=sum)
-barplot(analysis3a)
+hist(analysis3a)
 
 ## Report Mean
 dayMean3a <- mean(analysis3a, na.rm = TRUE)

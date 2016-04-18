@@ -19,7 +19,7 @@ data <- read.csv(dataFile)
 
 ```r
 analysis1a <- tapply(data$steps, data$date, FUN=sum)
-barplot(analysis1a)
+hist(analysis1a)
 ```
 
 ![](PA1_template_files/figure-html/unnamed-chunk-2-1.png) 
@@ -72,7 +72,7 @@ Next, we make a histogram of the total number of steps taken each day and Calcul
 
 ```r
 analysis3a <- tapply(imputedData$steps, imputedData$date, FUN=sum)
-barplot(analysis3a)
+hist(analysis3a)
 ```
 
 ![](PA1_template_files/figure-html/unnamed-chunk-7-1.png) 

@@ -25,7 +25,7 @@ data <- read.csv(dataFile)
 ## What is mean and median total number of steps taken per day?
 ```{r}
 analysis1a <- tapply(data$steps, data$date, FUN=sum)
-barplot(analysis1a)
+hist(analysis1a)
 dayMean1a <- mean(analysis1a, na.rm = TRUE)
 dayMedian1a <- median(analysis1a, na.rm = TRUE)
 
@@ -67,7 +67,7 @@ for ( ndx in 1:nrow(imputedData)) if ( is.na(imputedData[ndx,1]) ) imputedData[n
 Next, we make a histogram of the total number of steps taken each day and Calculate and report the mean and median total number of steps taken per day. Do these values differ from the estimates from the first part of the assignment? What is the impact of imputing missing data on the estimates of the total daily number of steps?
 ```{r}
 analysis3a <- tapply(imputedData$steps, imputedData$date, FUN=sum)
-barplot(analysis3a)
+hist(analysis3a)
 ```
 
 Finally, we compute the Mean and the Median...
